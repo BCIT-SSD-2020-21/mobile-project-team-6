@@ -11,7 +11,7 @@ const FooterTabs = () => {
           <Icon style={{ color: "#FFFF" }} name="home" />
           <Text style={{ color: "#FFFF" }}>Home</Text>
         </Button>
-        <Button onPress={() => history.push("/dashboard")}>
+        <Button onPress={() => history.push("/search")}>
           <Icon style={{ color: "#FFFF" }} name="search" />
           <Text style={{ color: "#FFFF" }}> Search</Text>
         </Button>
