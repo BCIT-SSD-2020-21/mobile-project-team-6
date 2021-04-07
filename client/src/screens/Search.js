@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Text, TextInput, View, StyleSheet, SafeAreaView} from 'react-native';
 import finnhub from '../api/Finnhub'
-import { API_KEY } from ".env";
+//import { API_KEY } from "dotenv";
 import {EvilIcons} from '@expo/vector-icons'
 import Constants from 'expo-constants'
 import { Button } from 'react-native-elements';
@@ -12,7 +12,8 @@ export default function Search() {
     
     const searchAPI = async (data) => {
         console.log("term", term)        
-        const response = await finnhub.get(`quote?symbol=${data}&token=${API_KEY}`)       
+        //const response = await finnhub.get(`quote?symbol=${data}&token=${API_KEY}`)       
+        const response = await finnhub.get(`quote?symbol=${data}&token=c1he28v48v6qtr46ae90`)    
         console.log("results", results) 
         setResults(response.data.c)         
     };  
@@ -29,15 +30,15 @@ export default function Search() {
                 <View style={styles.section1}>
                     <EvilIcons styles={styles.icon} name="search"/>
                     <TextInput styles={styles.input} placeholder="Enter stock index here" onChangeText={(event) => setTerm(event)} />
-                    <Button styles={styles.button} title="SEARCH" onPress={() => searchAPI(term)}/>
+                    <Button buttonStyle={{backgroundColor:"#ffb347"}} styles={styles.button} title="SEARCH" onPress={() => searchAPI(term)}/>
                 </View>
                 <View style={styles.section2}> 
                     <Text style={{margin: 15}}> ${results}</Text>
                     <View style={{margin: 5}}>
-                        <Button styles={styles.button}   title="BUY"/>
+                        <Button buttonStyle={{backgroundColor:"#ffb347"}} styles={styles.button}   title="BUY"/>
                     </View>
                     <View style={{margin: 5}}>
-                        <Button styles={styles.button}  title="SELL"/> 
+                        <Button buttonStyle={{backgroundColor:"#ffb347"}}  title="SELL"/> 
                     </View>
                 </View>                
             </View>
@@ -46,7 +47,7 @@ export default function Search() {
             <View style={styles.section1}>
                 <EvilIcons styles={styles.icon} name="search"/>
                 <TextInput styles={styles.input} placeholder="Enter stock index here" onChangeText={(event) => setTerm(event)} />
-                <Button styles={styles.button} title="SEARCH" onPress={() => searchAPI(term)}/>
+                <Button buttonStyle={{backgroundColor:"#ffb347"}} styles={styles.button} title="SEARCH" onPress={() => searchAPI(term)}/>
             </View>
         </View>
     )    
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
          flexDirection: 'row',
          justifyContent:'center',         
          alignItems: 'center',  
-         
+        
          width: 300,
          height: 100         
      },            
@@ -102,7 +103,9 @@ const styles = StyleSheet.create({
     },
     button: {
         // flex: 1,
-        margin: 15,        
+        margin: 15,
+        color : "#1E6738",
+                
  
     }
 })
